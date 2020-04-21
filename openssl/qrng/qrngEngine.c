@@ -1,11 +1,12 @@
 /**
  * @file testEngine.c
  * @author Zack Cogswell
- * @brief Example OpenSSL Engine implementation for changing the RAND function.
+ * @brief OpenSSL Engine implementation for changing the RAND function to quantum simulator.
  * @version 0.2
  */
 
 #include <stdio.h> //for fprintf
+#include <unistd.h> //for usleep
 
 #include <openssl/engine.h>
 
@@ -20,13 +21,23 @@ static const char *engine_name = "test";
  * @param num number of random bytes to generate
  * @return int status code, 1 = success, 0 = failure
  */
-int fake_rand(unsigned char *buf, int num){
-    memset(buf, 0, num);
+int q_rand(unsigned char *buf, int num){
+    int rand = 0;
+    char output[num];
+    FILE *fptr;
+    for(int i = 0; i < num/4; i++){
+        fptr = fopen("rand.txt", "r");
+        fscanf(fptr, "%d", &rand);
+        memcpy(output + (i*4), &rand, 4);
+        fclose(fptr);
+        usleep(100000);
+    }
+    memcpy(buf, output, num);
     return 1;
 }
 
 //RAND_METHOD structure
-static const RAND_METHOD noRand = {.bytes = fake_rand}; /////CHANGE NAME/////
+static const RAND_METHOD noRand = {.bytes = q_rand}; /////CHANGE NAME/////
 
 /**
  * @brief Required function to create OpenSSL Engine.
