@@ -3,6 +3,8 @@ import qrng
 qrng.set_provider_as_IBMQ('')
 qrng.set_backend('')
 
-for i in range(10):
+while (1):
 	num = qrng.get_random_int32()
-	print(num)
+	f = open("rand.txt", "w")
+	f.write(str(num))
+	f.close()
