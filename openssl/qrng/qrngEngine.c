@@ -11,8 +11,8 @@
 #include <openssl/engine.h>
 
 /////ChANGE NAME FOR IMPLEMENTATION/////
-static const char *engine_id = "testEngine";
-static const char *engine_name = "test";
+static const char *engine_id = "qrngEngine";
+static const char *engine_name = "QRNG";
 
 /**
  * @brief New random function
