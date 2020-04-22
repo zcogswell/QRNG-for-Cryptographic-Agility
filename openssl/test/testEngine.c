@@ -6,7 +6,7 @@
  */
 
 #include <stdio.h> //for fprintf
-
+#include <string.h> //for memset
 #include <openssl/engine.h>
 
 /////ChANGE NAME FOR IMPLEMENTATION/////

@@ -6,6 +6,7 @@
  */
 
 #include <stdio.h> //for fprintf
+#include <string.h> //for memcpy
 #include <unistd.h> //for usleep
 
 #include <openssl/engine.h>
@@ -23,16 +24,14 @@ static const char *engine_name = "QRNG";
  */
 int q_rand(unsigned char *buf, int num){
     int rand = 0;
-    char output[num];
     FILE *fptr;
-    for(int i = 0; i < num/4; i++){
+    for(int i = 0; i < num; i+=4){
         fptr = fopen("rand.txt", "r");
         fscanf(fptr, "%d", &rand);
-        memcpy(output + (i*4), &rand, 4);
+        memcpy(buf + i, &rand, num - i < 4 ? num - i : 4);
         fclose(fptr);
         usleep(100000);
     }
-    memcpy(buf, output, num);
     return 1;
 }
 
