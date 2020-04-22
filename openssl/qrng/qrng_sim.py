@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Runs qrng local simulator
 """
-__author__ = "Goeffrey Kanteles, Zack Cogswell"
+__author__ = "Geoffrey Kanteles, Zack Cogswell"
 
 from time import time_ns
 from argparse import ArgumentParser
