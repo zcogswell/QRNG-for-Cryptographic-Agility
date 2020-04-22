@@ -23,12 +23,12 @@ static const char *engine_name = "QRNG";
  * @return int status code, 1 = success, 0 = failure
  */
 int q_rand(unsigned char *buf, int num){
-    int rand = 0;
+    char rand[4];
     FILE *fptr;
     for(int i = 0; i < num; i+=4){
-        fptr = fopen("rand.txt", "r");
-        fscanf(fptr, "%d", &rand);
-        memcpy(buf + i, &rand, num - i < 4 ? num - i : 4);
+        fptr = fopen("rand.txt", "rb");
+        fread(rand, sizeof(rand), 1, fptr);
+        memcpy(buf + i, rand, (num - i) < 4 ? (num - i) : 4);
         fclose(fptr);
         usleep(100000);
     }
