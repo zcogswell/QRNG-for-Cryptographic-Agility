@@ -13,7 +13,11 @@ unsigned int prng_generate (void)
 {
     unsigned char buffer[4];
     RAND_bytes(buffer, sizeof(buffer));
-    return (buffer);
+    unsigned int output = buffer[0] << 24;
+    output += buffer[1] << 16;
+    output += buffer[2] << 8;
+    output += buffer[3];
+    return output;
 }
 
 int main()
@@ -27,4 +31,3 @@ int main()
     // Clean up.
     unif01_DeleteExternGenBits(gen);
     return 0;
-}
