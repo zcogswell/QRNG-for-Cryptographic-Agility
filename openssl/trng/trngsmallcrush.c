@@ -8,7 +8,7 @@
 //Generates the random we'll be running smallcrush on
 unsigned int trng_generate (void)
 {
-    unsigned int randf;
+    unsigned int rand;
     if ( __builtin_ia32_rdrand32_step(&rand) ) {
         return rand;
     }
