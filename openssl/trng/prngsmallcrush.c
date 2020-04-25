@@ -31,3 +31,4 @@ int main()
     // Clean up.
     unif01_DeleteExternGenBits(gen);
     return 0;
+}
