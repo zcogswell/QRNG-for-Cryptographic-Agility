@@ -8,13 +8,9 @@
 //Generates the random we'll be running smallcrush on
 unsigned int trng_generate (void)
 {
-    float min = -100.001;
-    float max = 100.001;
-    float *randf;
-    unsigned long long rand64;
-    if ( __builtin_ia32_rdrand64_step(&rand64) ) {
-        *randf= (float)rand64/ULONG_MAX*(max - min) + min;
-        return (*randf);
+    unsigned int randf;
+    if ( __builtin_ia32_rdrand32_step(&rand) ) {
+        return rand;
     }
     else printf("Failed to get a random value");
     return 0;
