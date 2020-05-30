@@ -3,4 +3,5 @@
 echo "Normal"
 openssl rand -hex 10
 echo "Engine"
-openssl rand -engine `pwd`/testEngine.so -hex 10
+cd $(dirname "${BASH_SOURCE[0]}")
+openssl rand -engine ../bin/testEngine.so -hex 10
