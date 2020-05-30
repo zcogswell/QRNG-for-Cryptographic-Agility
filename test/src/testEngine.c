@@ -11,7 +11,7 @@
 #include <openssl/engine.h>
 
 /////REMOVE FOR IMPLEMENTATION/////
-#include "../noRand/noRand.h"
+#include "noRand.h" //fake_rand
 
 /////CHANGE NAME FOR IMPLEMENTATION/////
 static const char *engine_id = "testEngine";
