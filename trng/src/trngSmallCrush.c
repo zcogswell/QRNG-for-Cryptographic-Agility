@@ -1,23 +1,33 @@
-//Ju Youn Chae
-//Using smallcrush on intel's hardware trng generator
+/**
+ * @file prngSmallCrush.c
+ * @author Ju Youn Chae, Zack Cogswell
+ * @brief Using SmallCrush on Intel x86_64 TRNG
+ */
 #include <stdio.h>
 #include <limits.h>
 #include "TestU01.h"
 
 
-//Generates the random we'll be running smallcrush on
-unsigned int trng_generate (void)
-{
+/**
+ * @brief Calls integrated thermal RNG
+ * 
+ * @return int 32-bit random number
+ */
+unsigned int trng_generate(void){
     unsigned int rand;
-    if ( __builtin_ia32_rdrand32_step(&rand) ) {
+    if( __builtin_ia32_rdrand32_step(&rand)){
         return rand;
     }
     else printf("Failed to get a random value");
     return 0;
 }
 
-int main()
-{
+/**
+ * @brief Performs SmallCrush on Intel TRNG
+ * 
+ * @return int 0 upon success
+ */
+int main(){
     // Create TestU01 TRNG object for our generator
     unif01_Gen* gen = unif01_CreateExternGenBits("Intel TRNG", trng_generate);
 
