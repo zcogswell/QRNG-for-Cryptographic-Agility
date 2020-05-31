@@ -1,2 +1,8 @@
-## QRNG for Cryptographic Agility
-Testing existing cryptosystems for their agility in switching cryptographic primitives, primarily towards quantum random number generators.
+# Cryptographic Agility
+The ability for a cryptosystem to adopt new primitives.
+
+## IBM Qiskit
+A collection of quantum computers and simulators made accessible to the public by IBM.
+
+## OPENSSL
+OPENSSL is a cryptographic suite with good aglility and many applications.

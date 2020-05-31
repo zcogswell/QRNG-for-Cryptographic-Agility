@@ -1,0 +1,9 @@
+/*
+/*/
+!README.md
+!Makefile
+!.gitignore
+!/src/
+!/lib/
+!/conf/
+/conf/ibmq.json
