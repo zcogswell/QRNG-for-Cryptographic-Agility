@@ -6,7 +6,7 @@ Package `libssl-dev` on Debian systems or equivalent for OpenSSL.
 
 Package `testu01-bin` on Debian systems or equivalent for TestU01
 
-## Execute
+## Usage
 Executables make with `make`.
 
 Then the executables can be found in 'bin/'.

@@ -1,1 +1,0 @@
-gcc -std=c99 -Wall -O3 -o qrngsmallcrush qrngsmallcrush.c -Iinclude -Llib -ltestu01 -lprobdist -lmylib -lm

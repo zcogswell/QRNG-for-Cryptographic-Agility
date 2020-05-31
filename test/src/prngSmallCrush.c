@@ -14,8 +14,7 @@
  * 
  * @return int 32-bit random number
  */
-unsigned int prng_generate (void)
-{
+unsigned int prng_generate(void){
     unsigned char buffer[4];
     RAND_bytes(buffer, sizeof(buffer));
     return *(unsigned int *)buffer;
@@ -26,8 +25,7 @@ unsigned int prng_generate (void)
  * 
  * @return int 0 upon success
  */
-int main()
-{
+int main(){
     // Create TestU01 PRNG object for our generator
     unif01_Gen* gen = unif01_CreateExternGenBits("OpenSSL PRNG", prng_generate);
 

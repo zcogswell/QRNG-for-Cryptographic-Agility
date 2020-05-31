@@ -1,5 +1,8 @@
-## OPENSSL
-OPENSSL is a cryptographic suite with many uses.
+# Cryptographic Agility
+The ability for a cryptosystem to adopt new primitives.
 
-# Changing Primitives
-OPENSSL has a C library which can be got on Debian based systems from `libssl-dev`.
+## IBM Qiskit
+A collection of quantum computers and simulators made accessible to the public by IBM.
+
+## OPENSSL
+OPENSSL is a cryptographic suite with good aglility and many applications.
