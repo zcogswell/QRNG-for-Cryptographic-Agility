@@ -6,3 +6,13 @@ A collection of quantum computers and simulators made accessible to the public b
 
 ## OPENSSL
 OPENSSL is a cryptographic suite with good aglility and many applications.
+
+## debian_setup.sh
+Installs some of the necessary packages.
+
+## Prerequisites
+gcc
+
+make
+
+libcrypto
