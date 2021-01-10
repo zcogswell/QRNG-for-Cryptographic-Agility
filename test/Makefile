@@ -18,7 +18,7 @@ cleanobj:
 prngSmallCrush: $(TARGETDIR)/prngSmallCrush
 
 $(TARGETDIR)/prngSmallCrush: $(BUILDDIR)/prngSmallCrush.o
-	$(CC) -o $@ $^ -Iinclude -Llib -ltestu01 -lprobdist -lmylib -lm -lcrypto
+	$(CC) -o $@ $^ -Iinclude -Llib -ltestu01 -ltestu01probdist -ltestu01mylib -lm -lcrypto
 
 $(BUILDDIR)/prngSmallCrush.o: $(SRCDIR)/prngSmallCrush.c
 	$(CC) -o $@ -c $^

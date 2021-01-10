@@ -6,12 +6,12 @@ Currently making calls to IBM Qiskit.
 Only seems to work inside of Anaconda base.
 
 install qrng library:
-`pip install qrng`
+`pip install qrng qiskit`
 
 update qrng library:
 `pip install qrng -U`
 
-Package `testu01-bin` on Debian systems or equivalent for TestU01
+Package `libtestu01-dev` on Debian systems or equivalent for TestU01
 
 ## Usage
 `make` will generate binaries for testing Qiskit simulators.

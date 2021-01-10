@@ -4,7 +4,7 @@ Examples for modifying OpenSSL, creating OpenSSL Engines, and running TestU01
 ## Prerequisites
 Package `libssl-dev` on Debian systems or equivalent for OpenSSL.
 
-Package `testu01-bin` on Debian systems or equivalent for TestU01
+Package `libtestu01-dev` on Debian systems or equivalent for TestU01
 
 ## Usage
 Executables make with `make`.

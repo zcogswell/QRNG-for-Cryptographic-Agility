@@ -18,7 +18,7 @@ cleanobj:
 trngSmallCrush: $(TARGETDIR)/trngSmallCrush
 
 $(TARGETDIR)/trngSmallCrush: $(BUILDDIR)/trngSmallCrush.o
-	$(CC) -o $@ $^ -Iinclude -Llib -ltestu01 -lprobdist -lmylib -lm
+	$(CC) -o $@ $^ -Iinclude -Llib -ltestu01 -ltestu01probdist -ltestu01mylib -lm
 
 $(BUILDDIR)/trngSmallCrush.o: $(SRCDIR)/trngSmallCrush.c
 	$(CC) -o $@ -c $^ -mrdrnd
@@ -26,7 +26,7 @@ $(BUILDDIR)/trngSmallCrush.o: $(SRCDIR)/trngSmallCrush.c
 trngSmallCrush_ssl: $(TARGETDIR)/trngSmallCrush_ssl
 
 $(TARGETDIR)/trngSmallCrush_ssl: $(BUILDDIR)/trngSmallCrush_ssl.o
-	$(CC) -o $@ $^ -Iinclude -Llib -ltestu01 -lprobdist -lmylib -lm -lcrypto
+	$(CC) -o $@ $^ -Iinclude -Llib -ltestu01 -ltestu01probdist -ltestu01mylib -lm -lcrypto
 
 $(BUILDDIR)/trngSmallCrush_ssl.o: $(SRCDIR)/trngSmallCrush_ssl.c
 	$(CC) -o $@ -c $^ -mrdrnd

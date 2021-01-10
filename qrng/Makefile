@@ -18,7 +18,7 @@ cleanobj:
 qrngSmallCrush: $(TARGETDIR)/qrngSmallCrush
 
 $(TARGETDIR)/qrngSmallCrush: $(BUILDDIR)/qrngSmallCrush.o
-	$(CC) -o $@ $^ -Iinclude -Llib -ltestu01 -lprobdist -lmylib -lm -lcrypto
+	$(CC) -o $@ $^ -Iinclude -Llib -ltestu01 -ltestu01probdist -ltestu01mylib -lm -lcrypto
 
 $(BUILDDIR)/qrngSmallCrush.o: $(SRCDIR)/qrngSmallCrush.c
 	$(CC) -o $@ -c $^

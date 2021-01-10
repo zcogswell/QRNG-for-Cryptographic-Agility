@@ -7,7 +7,7 @@ OpenSSL comes with an RDRAND Engine.
 ## Prerequisites
 Intel or possibly AMD x86_64 processor with the RDRAND instruction.
 
-Package `testu01-bin` on Debian systems or equivalent for TestU01
+Package `libtestu01-dev` on Debian systems or equivalent for TestU01
 
 ## Usage
 `lib/test_trngEngine.sh` demonstrates the built-in TRNG engine that comes with OpenSSL.
