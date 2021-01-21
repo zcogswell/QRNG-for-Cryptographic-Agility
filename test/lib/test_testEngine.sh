@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #Demonstrates testEngine.so
 echo "Normal"
 openssl rand -hex 10

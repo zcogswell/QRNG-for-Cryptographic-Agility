@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #Demonstrates rdrand Engine
 echo "Normal"
 openssl rand -hex 10

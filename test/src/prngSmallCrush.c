@@ -31,6 +31,7 @@ int main(){
 
     // Run the tests.
     bbattery_SmallCrush(gen);
+    //bbattery_Crush(gen);
 
     // Clean up.
     unif01_DeleteExternGenBits(gen);

@@ -37,14 +37,14 @@ unsigned int trng_generate(void){
 
 int main()
 {
-    RAND_METHOD trng = {.bytes = trng_rand};
+    RAND_METHOD trng = {.bytes = (void *)trng_rand};
     RAND_set_rand_method(&trng);
     // Create TestU01 TRNG object for our generator
     unif01_Gen* gen = unif01_CreateExternGenBits("Intel TRNG via OpenSSL", trng_generate);
 
     // Run the tests.
     bbattery_SmallCrush(gen);
-
+    //bbattery_Crush(gen);
     // Clean up.
     unif01_DeleteExternGenBits(gen);
 
