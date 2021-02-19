@@ -6,12 +6,13 @@
 
 #include <stdio.h> //for printf
 #include <stdlib.h> //for rand
-#include <time.h>
-#include <unistd.h>
-#include <string.h>
+#include <time.h> //for time
+#include <unistd.h> //for usleep and access
+#include <string.h> //for strlen
+
 #include "buffer.h"
 
-int fill(buffer *buf, int size, int length, int delay){
+int fill(buffer *buf, int size, int delay){
     FILE *file = fopen(buf->filename, "w");
     fclose(file);
     char tempfile[strlen(buf->filename) + 5];
@@ -50,12 +51,20 @@ void getBuff(buffer *buf, int size, char *num){
     buf->loc += size;
 }
 
+//Testting functions
+
+/**
+ * @brief Creates string filled with letters in alphabetic order according to size
+ */
 void alpha(int size, char *string){
     for(int i = 0; i < size; i++){
         string[i] = '\x41' + i;
     }
 }
 
+/**
+ * @brief Creates string of random bytes
+ */
 void myrand(int size, char *string){
     int irand;
     for(int i = 0; i < size; i += sizeof(int)){
@@ -67,13 +76,20 @@ void myrand(int size, char *string){
     }
 }
 
+
+/**
+ * @brief Runs fill function
+ * 
+ * @param argv[1] delay (ms)
+ * @return int 0 on success
+ */
 int main(int argc, char **argv){
     srand(time(NULL));
     int delay = 0;
     if(argc > 1){
         delay = atoi(argv[1]);
     }
-    buffer buf = {1000, 0, "../bin/buffer.bin", &myrand};
-    fill(&buf, 4, 1000, delay);
+    buffer buf = {1000000, 0, "../bin/buffer.bin", &myrand};
+    fill(&buf, 4, delay);
     return 0;
 }
