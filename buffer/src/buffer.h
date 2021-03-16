@@ -14,7 +14,7 @@ typedef struct buffer{
     int size;                   //current buffer size in Bytes
     long loc;                   //current reading position
     char filename[128];         //filename of buffer
-    void (*func)(int, char *);  //number generator function
+    void (*rng)(int, char *);  //number generator function
 }buffer;
 
 /**
@@ -23,9 +23,10 @@ typedef struct buffer{
  * @param buf the buffer object
  * @param size number of bytes in each random number
  * @param delay number of milliseconds 
+ * @param refill 0 if no refills, any other integer for refills
  * @return int 
  */
-int fill(buffer *buf, int size, int delay);
+int fill(buffer *buf, int size, int delay, int refill);
 
 /**
  * @brief Get the next value in the buffer.
