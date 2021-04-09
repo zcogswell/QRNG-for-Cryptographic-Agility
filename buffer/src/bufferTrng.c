@@ -20,8 +20,7 @@ void trng_generate(int size, char *string){
 }
 
 int main(){
-    //buffer trng = {226900000*4, 0, "../bin/buffer.bin", &trng_generate};
-    buffer trng = {1024*1024, 0, "../bin/buffer.bin", &trng_generate};
+    buffer trng = {1000000000, 0, "../bin/buffer.bin", &trng_generate};
     fill(&trng, 1024*1024, 0, 0);
     return 0;
 }

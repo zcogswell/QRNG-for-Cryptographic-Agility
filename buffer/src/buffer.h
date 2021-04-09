@@ -13,7 +13,7 @@
 typedef struct buffer{
     int size;                   //current buffer size in Bytes
     long loc;                   //current reading position
-    char filename[128];         //filename of buffer
+    char *filename;            //filename of buffer
     void (*rng)(int, char *);  //number generator function
 }buffer;
 

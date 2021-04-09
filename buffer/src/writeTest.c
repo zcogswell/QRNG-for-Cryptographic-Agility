@@ -27,7 +27,6 @@ void myrand(int size, char *string){
     }
 }
 
-
 /**
  * @brief Runs fill function
  * 
@@ -40,7 +39,7 @@ int main(int argc, char **argv){
     if(argc > 1){
         delay = atoi(argv[1]);
     }
-    buffer buf = {1000*4, 0, "../bin/buffer.bin", &myrand};
+    buffer buf = {1024*4, 0, "../bin/buffer.bin", &myrand};
     fill(&buf, 4, delay, 0);
     return 0;
 }

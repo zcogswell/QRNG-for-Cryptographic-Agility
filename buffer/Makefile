@@ -5,7 +5,7 @@ SRCDIR = src
 TARGETDIR = bin
 BUILDDIR = $(TARGETDIR)/obj
 
-all: directories buffer bufferTest bufferSmallCrush bufferTrng cleanobj
+all: directories buffer writeTest readTest bufferSmallCrush bufferTrng cleanobj
 
 .PHONY: directories clean cleanobj
 directories:
@@ -20,12 +20,20 @@ buffer: $(BUILDDIR)/buffer.o
 $(BUILDDIR)/buffer.o: $(SRCDIR)/buffer.c
 	$(CC) -o $@ -c $^
 
-bufferTest: $(TARGETDIR)/bufferTest
+writeTest: $(TARGETDIR)/writeTest
 
-$(TARGETDIR)/bufferTest: $(BUILDDIR)/bufferTest.o $(BUILDDIR)/buffer.o
+$(TARGETDIR)/writeTest: $(BUILDDIR)/writeTest.o $(BUILDDIR)/buffer.o
 	$(CC) -o $@ $^
 
-$(BUILDDIR)/bufferTest.o: $(SRCDIR)/bufferTest.c
+$(BUILDDIR)/writeTest.o: $(SRCDIR)/writeTest.c
+	$(CC) -o $@ -c $^
+
+readTest: $(TARGETDIR)/readTest
+
+$(TARGETDIR)/readTest: $(BUILDDIR)/readTest.o $(BUILDDIR)/buffer.o
+	$(CC) -o $@ $^
+
+$(BUILDDIR)/readTest.o: $(SRCDIR)/readTest.c
 	$(CC) -o $@ -c $^
 
 bufferSmallCrush: $(TARGETDIR)/bufferSmallCrush
