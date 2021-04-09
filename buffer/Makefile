@@ -5,7 +5,7 @@ SRCDIR = src
 TARGETDIR = bin
 BUILDDIR = $(TARGETDIR)/obj
 
-all: directories buffer writeTest readTest bufferSmallCrush bufferTrng cleanobj
+all: directories buffer writeTest readTest bufferSmallCrush bufferTrng bufferPrng cleanobj
 
 .PHONY: directories clean cleanobj
 directories:
@@ -51,3 +51,11 @@ $(TARGETDIR)/bufferTrng: $(BUILDDIR)/bufferTrng.o $(BUILDDIR)/buffer.o
 
 $(BUILDDIR)/bufferTrng.o: $(SRCDIR)/bufferTrng.c
 	$(CC) -o $@ -c $^ -mrdrnd
+
+bufferPrng: $(TARGETDIR)/bufferPrng
+
+$(TARGETDIR)/bufferPrng: $(BUILDDIR)/bufferPrng.o $(BUILDDIR)/buffer.o
+	$(CC) -o $@ $^ -lcrypto
+
+$(BUILDDIR)/bufferPrng.o: $(SRCDIR)/bufferPrng.c
+	$(CC) -o $@ -c $^
