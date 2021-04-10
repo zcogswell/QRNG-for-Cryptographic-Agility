@@ -22,10 +22,7 @@ def parse_args():
     parser.add_argument('-b', '--backend', default='', help='IBMQ backend')
     return parser.parse_args()
 
-def main():
-    """Uses the qrng library's local simulator to generate random 32b ints.
-        The ints are stored in a local file called rand.txt
-    """
+def init():
     args = parse_args()
     try:
         with open('../conf/ibmq.json', 'r') as configfile:
@@ -41,8 +38,16 @@ def main():
 
     qrng.set_provider_as_IBMQ(args.ibmq)
     qrng.set_backend(args.backend)
-    filename = '../bin/rand.bin'
 
+    return args
+
+def main():
+    """Uses the qrng library's local simulator to generate random 32b ints.
+        The ints are stored in a local file called rand.txt
+    """
+    
+    filename = '../bin/rand.bin'
+    args = init()
     print(args)
     
     if args.timer:
